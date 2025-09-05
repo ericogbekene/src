@@ -5,6 +5,16 @@ const getHelloWorld = (req, res) => {
     res.json({ message: 'Hello, World!' });
 };
 
+const getUsers = async (req, res) => {
+    if (!users) {
+        res.error("No Users found")
+    }
+    //const users = await users.findmany()
+    //return res.json({users})
+
+
+}
+
 // Endpoint to receive user name, email, and phone, hash sensitive info, and store in DB
 const postUser = async (req, res) => {
     const { name, email, phone } = req.body;
@@ -34,4 +44,5 @@ const postUser = async (req, res) => {
 module.exports = {
     getHelloWorld,
     postUser,
+    getUsers, 
 };
